@@ -13,7 +13,18 @@ class LoginController extends Controller {
 
 	public function index() {
 		$this->pageData['title'] = "Авторизация";
+		if(!empty($_POST)) {
+			if(!$this->login()) {
+				$this->pageData['error'] = "Неправильный пароль или имя";
+			}
+		}
+
 		$this->view->render($this->pageTpl, $this->pageData);
 	}
 
+	public function login() {
+		if(!$this->model->checkUser()) {
+			return false;
+		}
+	}
 } 
