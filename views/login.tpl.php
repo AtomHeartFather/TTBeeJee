@@ -12,27 +12,27 @@
  <body>
 
  <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+        <h3 class="text-center text-white pt-5">Авторизация</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                            <h3 class="text-center text-info">Вход</h3>
                                 <?php if(!empty($pageData['error'])) :?>
                         		<p><?php echo $pageData['error']; ?></p>
                     			<?php endif; ?>
                             <div class="form-group">
-                                <label for="username" class="text-info">Login:</label><br>
+                                <label for="username" class="text-info">Имя:</label><br>
                                 <input type="text" name="login" id="login" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
+                                <label for="password" class="text-info">Пароль:</label><br>
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="войти">
                             </div>
 <!--                             <div id="register-link" class="text-right">
                                 <a href="#" class="text-info">Register here</a>
