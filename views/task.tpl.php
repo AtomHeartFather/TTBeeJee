@@ -6,6 +6,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
  	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/task.css">
  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
  </head>
  <body>
@@ -15,6 +16,9 @@
         <h1>MAIN.TPL.PHP</h1>
         <p class="lead">основная вьюха</p>
         <a href="login"><input type="submit" name="submit" class="btn btn-info btn-md" value="submit"></a>
+
+
+
     </div>
  	
 	
@@ -51,40 +55,56 @@
                                 <!-- /.col-lg-4 (nested) -->
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<!-- создание задачи -->
+<div id="reg">
+    <a id="button" href="#">Создание задачи</a>
+      <div id="informer" class="b-toggle">
+          <form id="createTask" name="test" method="post">
+              <p><b>Укажите ваше имя</b><br>
+               <input type="text" id="name" name="name" size="30">
+              </p>
+              <p><b>Укажите ваш e-mail</b><br>
+               <input type="text" id="mail" name="mail" size="50">
+              </p>
+              <p><b>Опишите задачу</b><br>
+               <input type="text" id="text" name="text" size="5000">
+              </p>
+              <input type="submit" id="submit" value="Отправить">
+          </form>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="defaultForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-        </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-default">Login</button>
-      </div>
-    </div>
-  </div>
 </div>
 
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-    Modal Login Form</a>
-</div>
+<script type="text/javascript">
+  button.onclick = function (){
+    var className = informer.className;
+    if( className.indexOf(' expanded') == -1 ){
+        className += ' expanded';
+    }
+    else {
+        className = className.replace(' expanded', '');
+    }
+    informer.className = className;
+    return false;
+};
+
+    /* attach a submit handler to the form */
+    $("#createTask").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = "http://localhost/TTBeeJee/task/addTask";
+
+      /* Send the data using post with element id name and name2*/
+      var posting = $.post( url, { name: $('#name').val(), mail: $('#mail').val(), text: $('#text').val() } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        alert('success');
+      });
+    });
+</script>
 	 </body>
 	 </html>

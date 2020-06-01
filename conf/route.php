@@ -19,7 +19,7 @@ class Routing {
 		include CONTROLLER_PATH . $controllerName . ".php";
 		include MODEL_PATH . $modelName . ".php";
 
-		if(isset($route[3]) && $route[3] !='') { //проверить позицию в массиве при перезде на хостинг
+		if(isset($route[3]) && $route[3] !='') { //проверить позицию в массиве при переезде на хостинг
 			$action = $route[3]; 
 		}
 

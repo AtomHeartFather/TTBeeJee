@@ -1,0 +1,14 @@
+.b-toggle {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    -moz-transition: opacity .3s, max-height .3s;
+    -ms-transition: opacity .3s, max-height .3s;
+    transition: opacity .3s, max-height .3s;
+    _display: none;
+}
+.expanded {
+    max-height: 100%;
+    opacity: 1;
+    _display: block;
+}
